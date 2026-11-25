@@ -19,8 +19,52 @@ half_add_sub_tb.v	Stimulus and VCD generation
 
 ### Verilog Program
 ```
+// gedit half_add_sub.v
+module half_adder (
+    input  wire A,
+    input  wire B,
+    output wire Sum,
+    output wire Carry
+);
+    assign Sum   = A ^ B;   // XOR
+    assign Carry = A & B;   // AND
+endmodule
+ 
+module half_subtractor (
+    input  wire A,
+    input  wire B,
+    output wire Diff,
+    output wire Borrow
+);
+    assign Diff   = A ^ B;      // XOR
+    assign Borrow = (~A) & B;  // A' . B
+endmodule
+
 ```
 ### Testbench Program
+```
+// gedit half_add_sub.v
+module half_adder (
+    input  wire A,
+    input  wire B,
+    output wire Sum,
+    output wire Carry
+);
+    assign Sum   = A ^ B;   // XOR
+    assign Carry = A & B;   // AND
+endmodule
+ 
+module half_subtractor (
+    input  wire A,
+    input  wire B,
+    output wire Diff,
+    output wire Borrow
+);
+    assign Diff   = A ^ B;      // XOR
+    assign Borrow = (~A) & B;  // A' . B
+endmodule
+
+```
 
 
 ### Truth Table
@@ -84,6 +128,10 @@ The Half Adder and Half Subtractor were realized using Verilog HDL:
 The design was compiled and simulated using Synopsys VCS, and the functionality was verified using DVE waveform analysis, matching the expected truth table.
 
 ### Output
+<img width="1853" height="989" alt="exp3 1" src="https://github.com/user-attachments/assets/99db232d-fea3-45fa-8b63-1e4f01fff992" />
+
+<img width="1845" height="950" alt="exp3 2" src="https://github.com/user-attachments/assets/e5879536-e592-4219-9627-9386803a6d62" />
+
 
 
 ### Viva-Voce Questions
@@ -109,8 +157,4 @@ The design was compiled and simulated using Synopsys VCS, and the functionality 
 ### Result
 
 Thus, the Half Adder and Half Subtractor were designed, implemented using Verilog HDL, successfully simulated using Synopsys VCS, and verified using Synopsys DVE.
-
-
-
-
 
